@@ -187,6 +187,7 @@
     async function buy() {
         let ss = "";
         const batch = parseInt(document.getElementById('batch').value);
+        const send = batch*25;
         if (batch > pop && batch > 1) {
             alert('Error: Amount exceeds population');
             return;
@@ -197,8 +198,8 @@
                 const transactionParameters = {
                     to: contractAddress,
                     from: accounts[0],
-                    value: web3.utils.toHex(web3.utils.toWei(batch.toString(), 'ether')),
-                    data: contract.methods.batch(batch*25).encodeABI()
+                    value: web3.utils.toHex(web3.utils.toWei(send.toString(), 'ether')),
+                    data: contract.methods.batch(batch).encodeABI()
                 };
                 await ethereum.request({method: 'eth_sendTransaction', params: [transactionParameters]});
                 console.log('Transaction successful');
