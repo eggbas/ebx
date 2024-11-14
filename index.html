@@ -203,7 +203,7 @@
                 await ethereum.request({method: 'eth_sendTransaction', params: [transactionParameters]});
                 console.log('Transaction successful');
                 if (batch != 1) {ss = "s";}
-                alert('Purchase of ' + batch + ' egg' + ss + ' initiated successfully. \nCheck your wallet to see what you hatched!');
+                alert('Purchase of ' + batch + ' egg' + ss + ' initiated successfully.');
             } catch (error) {
                 console.error('Error executing batch:', error);
                 alert('Error: ' + error);
