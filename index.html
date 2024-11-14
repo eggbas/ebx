@@ -198,7 +198,7 @@
                     to: contractAddress,
                     from: accounts[0],
                     value: web3.utils.toHex(web3.utils.toWei(batch.toString(), 'ether')),
-                    data: contract.methods.batch(batch).encodeABI()
+                    data: contract.methods.batch(batch*25).encodeABI()
                 };
                 await ethereum.request({method: 'eth_sendTransaction', params: [transactionParameters]});
                 console.log('Transaction successful');
